@@ -41,6 +41,7 @@ namespace Calendar
             DateTime dateValue;
             if (!DateTime.TryParse(dateString, out dateValue))
             {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Sorry, format of your date is wrong :(");
                 return;
             }

@@ -1,5 +1,0 @@
-D:\Code\C#\Calendar\Calendar\bin\Debug\Calendar.exe
-D:\Code\C#\Calendar\Calendar\bin\Debug\Calendar.pdb
-D:\Code\C#\Calendar\Calendar\obj\Debug\Calendar.csprojResolveAssemblyReference.cache
-D:\Code\C#\Calendar\Calendar\obj\Debug\Calendar.exe
-D:\Code\C#\Calendar\Calendar\obj\Debug\Calendar.pdb
