@@ -21,16 +21,17 @@ namespace EffectiveWorker.controller
         public string CreateWorker(string argsStr)
         {
             var args = argsStr.Split(",");
-            if (args == null || args.Length != 3)
+            if (args == null || args.Length != 4)
             {
-                return "Wrong command format: should be 3 args";
+                return "Wrong command format: should be 4 args";
             }
 
             return CreateWorker(new Worker
             {
                 Surname = args[0],
                 Name = args[1],
-                Patronimic = args[2]
+                Patronimic = args[2],
+                Age = int.Parse(args[3])
             }).Id.ToString();
         }
 

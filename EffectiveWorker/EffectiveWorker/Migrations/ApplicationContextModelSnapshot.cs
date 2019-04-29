@@ -42,6 +42,8 @@ namespace EffectiveWorker.Migrations
                 b.Property<int>("Id")
                     .ValueGeneratedOnAdd();
 
+                b.Property<int>("Age");
+
                 b.Property<string>("Name");
 
                 b.Property<string>("Patronimic");
