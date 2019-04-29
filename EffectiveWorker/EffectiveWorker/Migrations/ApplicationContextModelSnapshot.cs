@@ -46,6 +46,8 @@ namespace EffectiveWorker.Migrations
 
                 b.Property<string>("Patronimic");
 
+                b.Property<int>("Seniority");
+
                 b.Property<string>("Surname");
 
                 b.HasKey("Id");

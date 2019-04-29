@@ -16,7 +16,7 @@ namespace EffectiveWorker
         //update worker 2 
         static void Main(string[] args)
         {
-            var workerController = new WorkerController();
+            var workerController = new WorkerCommandLineController();
             var projectController = new ProjectController();
 
             while (true)

@@ -18,22 +18,6 @@ namespace EffectiveWorker.controller
             return newWorker;
         }
 
-        public string CreateWorker(string argsStr)
-        {
-            var args = argsStr.Split(",");
-            if (args == null || args.Length != 3)
-            {
-                return "Wrong command format: should be 3 args";
-            }
-
-            return CreateWorker(new Worker
-            {
-                Surname = args[0],
-                Name = args[1],
-                Patronimic = args[2]
-            }).Id.ToString();
-        }
-
         public Worker FindWorker(int id)
         {
             using (var db = new ApplicationContext())
@@ -42,24 +26,27 @@ namespace EffectiveWorker.controller
             }
         }
 
-        public string FindWorker(string argsStr)
-        {
-            var args = argsStr.Split(",");
-            if (args == null || args.Length != 1)
-            {
-                return "Wrong command format: should be 1 args";
-            }
-
-            var worker = FindWorker(int.Parse(args[0]));
-            return
-                worker.Surname + " " + worker.Name + " " + worker.Patronimic;
-        }
-
         public Worker FindWorkerBySurname(string surname)
         {
             using (var db = new ApplicationContext())
             {
                 return db.Workers.First(w => w.Surname.Equals(surname));
+            }
+        }
+
+        public Worker FindWorkerByName(string name)
+        {
+            using (var db = new ApplicationContext())
+            {
+                return db.Workers.First(w => w.Name.Equals(name));
+            }
+        }
+
+        public Worker FindWorkerByFullName(string surname, string name)
+        {
+            using (var db = new ApplicationContext())
+            {
+                return db.Workers.First(w => w.Name.Equals(name) && w.Surname.Equals(surname));
             }
         }
 
@@ -75,24 +62,6 @@ namespace EffectiveWorker.controller
             }
         }
 
-        public string GetWorkerProjects(string argsStr)
-        {
-            var args = argsStr.Split(",");
-            if (args == null || args.Length != 1)
-            {
-                return "Wrong command format: should be 1 args";
-            }
-
-            var list = GetWorkerProjects(int.Parse(args[0]));
-            var strList = "";
-            foreach (var project in list)
-            {
-                strList += project.Name + " " + project.Premium + "\n";
-            }
-
-            return strList;
-        }
-
         public Worker UpdateWorker(Worker worker)
         {
             Worker newWorker;
@@ -105,25 +74,6 @@ namespace EffectiveWorker.controller
             return newWorker;
         }
 
-        public string UpdateWorker(string argsStr)
-        {
-            var args = argsStr.Split(",");
-            if (args == null || args.Length != 4)
-            {
-                return "Wrong command format: should be 4 args";
-            }
-
-            UpdateWorker(new Worker
-            {
-                Id = int.Parse(args[0]),
-                Surname = args[1],
-                Name = args[2],
-                Patronimic = args[3]
-            });
-
-            return "worker updated";
-        }
-
         public void DeleteWorker(int id)
         {
             using (var db = new ApplicationContext())
@@ -132,18 +82,6 @@ namespace EffectiveWorker.controller
                 db.Workers.Remove(worker);
                 db.SaveChanges();
             }
-        }
-
-        public string DeleteWorker(string argsStr)
-        {
-            var args = argsStr.Split(",");
-            if (args == null || args.Length != 1)
-            {
-                return "Wrong command format: should be 1 args";
-            }
-
-            DeleteWorker(int.Parse(args[0]));
-            return "worker deleted";
         }
     }
 }

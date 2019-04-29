@@ -8,7 +8,7 @@ namespace EffectiveWorker.model
         public string Surname { get; set; }
         public string Name { get; set; }
         public string Patronimic { get; set; }
-
+        public int Seniority { get; set; }
         public virtual List<Project> Projects { get; set; }
     }
 }
