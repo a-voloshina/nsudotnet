@@ -55,9 +55,9 @@ namespace EffectiveWorker.controller
         public string UpdateWorker(string argsStr)
         {
             var args = argsStr.Split(",");
-            if (args == null || args.Length != 4)
+            if (args == null || args.Length != 5)
             {
-                return "Wrong command format: should be 4 args";
+                return "Wrong command format: should be 5 args";
             }
 
             UpdateWorker(new Worker
@@ -65,7 +65,8 @@ namespace EffectiveWorker.controller
                 Id = int.Parse(args[0]),
                 Surname = args[1],
                 Name = args[2],
-                Patronimic = args[3]
+                Patronimic = args[3],
+                Seniority = int.Parse(args[4])
             });
 
             return "worker updated";

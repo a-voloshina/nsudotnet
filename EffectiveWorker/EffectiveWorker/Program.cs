@@ -13,7 +13,8 @@ namespace EffectiveWorker
         //get workers
         //get projects
         //delete worker 1
-        //update worker 2 
+        //update worker 7,Лось,Антон,Васильевич,10
+        //update worker 3,Степанов,Павел,Андреевич,7
         static void Main(string[] args)
         {
             var workerController = new WorkerCommandLineController();
