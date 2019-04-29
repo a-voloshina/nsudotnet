@@ -13,7 +13,9 @@ namespace EffectiveWorker
         //get workers
         //get projects
         //delete worker 1
-        //update worker 2 
+
+        //update worker 5,Харламова,Татьяна,Александровна,30
+        //update worker 2,Андреев,Игорь,Николаевич,50
         static void Main(string[] args)
         {
             var workerController = new WorkerController();
@@ -95,19 +97,19 @@ namespace EffectiveWorker
                         }
                         else
                         {
-                            res = "Unknown comand";
+                            res = "Unknown command";
                         }
                     }
                     else
                     {
-                        res = "Unknown comand";
+                        res = "Unknown command";
                     }
 
                     Console.WriteLine(res);
                 }
                 catch (Exception exception)
                 {
-                    Console.Error.WriteLine("Wrong command format");
+                    Console.Error.WriteLine("Wrong command format: " + exception.GetType() + " " + exception.Message);
                 }
             }
         }

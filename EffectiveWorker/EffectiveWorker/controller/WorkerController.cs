@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using EffectiveWorker.model;
@@ -109,17 +110,20 @@ namespace EffectiveWorker.controller
         public string UpdateWorker(string argsStr)
         {
             var args = argsStr.Split(",");
-            if (args == null || args.Length != 4)
+            if (args == null || args.Length != 5)
             {
-                return "Wrong command format: should be 4 args";
+                return "Wrong command format: should be 5 args";
             }
+
+            Console.WriteLine("updating worker");
 
             UpdateWorker(new Worker
             {
                 Id = int.Parse(args[0]),
                 Surname = args[1],
                 Name = args[2],
-                Patronimic = args[3]
+                Patronimic = args[3],
+                Age = int.Parse(args[4])
             });
 
             return "worker updated";
